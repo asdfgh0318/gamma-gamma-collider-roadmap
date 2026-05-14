@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>FLOATER F² — Orchestration Flow</title>
+<style>
+  @page { size: A4 portrait; margin: 20mm; }
+  @media print { body { -webkit-print-color-adjust: exact; print-color-adjust: exact; } }
+
+  body {
+    font-family: 'Courier New', monospace;
+    background: white;
+    color: black;
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    line-height: 1.5;
+  }
+
+  h1 { font-size: 18px; text-align: center; margin-bottom: 5px; }
+  .subtitle { text-align: center; font-size: 12px; color: #666; margin-bottom: 30px; }
+  .repo { text-align: center; font-size: 11px; color: #888; margin-bottom: 40px; }
+
+  .flow { display: flex; flex-direction: column; align-items: center; gap: 0; }
+
+  .node {
+    border: 2px solid black;
+    padding: 10px 16px;
+    max-width: 500px;
+    width: 100%;
+    font-size: 12px;
+  }
+
+  .node .label { font-weight: bold; font-size: 13px; }
+  .node .commit { font-size: 11px; color: #555; margin-top: 3px; }
+  .node a { color: black; text-decoration: underline; font-size: 10px; word-break: break-all; }
+
+  .arrow {
+    width: 2px;
+    height: 30px;
+    background: black;
+    position: relative;
+  }
+  .arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: -4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid black;
+  }
+
+  .parallel-group {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+    max-width: 520px;
+  }
+  .parallel-group .node { flex: 1; font-size: 11px; }
+  .parallel-group .node .label { font-size: 11px; }
+  .parallel-group .node .commit { font-size: 10px; }
+  .parallel-group .node a { font-size: 9px; }
+
+  .parallel-label {
+    font-size: 11px;
+    font-weight: bold;
+    border: 1px dashed black;
+    padding: 4px 12px;
+    margin-bottom: 5px;
+  }
+
+  .merge-arrows {
+    display: flex;
+    width: 100%;
+    max-width: 520px;
+    justify-content: space-around;
+    height: 30px;
+  }
+  .merge-line {
+    width: 2px;
+    height: 30px;
+    background: black;
+  }
+
+  .converge {
+    width: 2px;
+    height: 20px;
+    background: black;
+    position: relative;
+  }
+  .converge::after {
+    content: '';
+    position: absolute;
+    bottom: -6px;
+    left: -4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid black;
+  }
+
+  .phase { font-size: 10px; color: #999; margin: 5px 0 0; text-transform: uppercase; letter-spacing: 2px; }
+
+  .stats {
+    margin-top: 40px;
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    font-size: 11px;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<h1>FLOATER F&sup2; &mdash; Parallel Agent Orchestration</h1>
+<div class="subtitle">Simulator Development Sprint &mdash; 2026-03-10 / 2026-03-11</div>
+<div class="repo">github.com/asdfgh0318/zycie</div>
+
+<div class="flow">
+
+  <div class="phase">Phase 0 &mdash; Setup</div>
+  <div class="node">
+    <div class="label">Create 6 GitHub Issues (#11&ndash;#16)</div>
+    <div class="commit">SIM-1 through SIM-6 scoped and filed</div>
+    <a href="https://github.com/asdfgh0318/zycie/issues?q=SIM">github.com/asdfgh0318/zycie/issues</a>
+  </div>
+
+  <div class="arrow"></div>
+
+  <div class="phase">Phase 1 &mdash; Blocker (sequential on main)</div>
+  <div class="node">
+    <div class="label"><a href="https://github.com/asdfgh0318/zycie/issues/11">#11</a> SIM-1: Fix and test simulator base functionality</div>
+    <div class="commit">commit <a href="https://github.com/asdfgh0318/zycie/commit/f11b00f">f11b00f</a> &mdash; 7 critical bugs fixed</div>
+  </div>
+
+  <div class="arrow"></div>
+
+  <div class="parallel-label">Phase 2 &mdash; 3 branches in parallel</div>
+
+  <div class="parallel-group">
+    <div class="node">
+      <div class="label"><a href="https://github.com/asdfgh0318/zycie/issues/12">#12</a> SIM-2</div>
+      <div class="commit">Ocean Visuals</div>
+      <div class="commit">branch: sim-2-ocean-visuals</div>
+      <div class="commit"><a href="https://github.com/asdfgh0318/zycie/commit/67667bf">67667bf</a></div>
+    </div>
+    <div class="node">
+      <div class="label"><a href="https://github.com/asdfgh0318/zycie/issues/13">#13</a> SIM-3</div>
+      <div class="commit">Rescue Scenario</div>
+      <div class="commit">branch: sim-3-rescue-scenario</div>
+      <div class="commit"><a href="https://github.com/asdfgh0318/zycie/commit/afee4c1">afee4c1</a></div>
+    </div>
+    <div class="node">
+      <div class="label"><a href="https://github.com/asdfgh0318/zycie/issues/14">#14</a> SIM-4</div>
+      <div class="commit">Docking / F5</div>
+      <div class="commit">branch: sim-4-docking-formation</div>
+      <div class="commit"><a href="https://github.com/asdfgh0318/zycie/commit/0baa769">0baa769</a></div>
+    </div>
+  </div>
+
+  <div class="merge-arrows">
+    <div class="merge-line"></div>
+    <div class="merge-line"></div>
+    <div class="merge-line"></div>
+  </div>
+
+  <div class="converge"></div>
+
+  <div class="phase">Phase 3 &mdash; Merge to main</div>
+  <div class="node">
+    <div class="label">Sequential merge &rarr; main</div>
+    <div class="commit">SIM-2: fast-forward</div>
+    <div class="commit">SIM-3: auto-merge (0 conflicts)</div>
+    <div class="commit">SIM-4: auto-merge (0 conflicts)</div>
+    <div class="commit">Final: <a href="https://github.com/asdfgh0318/zycie/commit/1baad64">1baad64</a></div>
+  </div>
+
+  <div class="arrow"></div>
+
+  <div class="phase">Phase 4 &mdash; Pending</div>
+
+  <div class="parallel-group">
+    <div class="node">
+      <div class="label"><a href="https://github.com/asdfgh0318/zycie/issues/15">#15</a> SIM-5</div>
+      <div class="commit">Minimap / HUD / Battery</div>
+      <div class="commit">branch: sim-5-minimap</div>
+      <div class="commit"><a href="https://github.com/asdfgh0318/zycie/commit/0ed684f">0ed684f</a></div>
+    </div>
+    <div class="node">
+      <div class="label"><a href="https://github.com/asdfgh0318/zycie/issues/16">#16</a> SIM-6</div>
+      <div class="commit">Pitch Deck + README</div>
+      <div class="commit">branch: sim-6-pitch-deck</div>
+      <div class="commit"><a href="https://github.com/asdfgh0318/zycie/commit/dab8056">dab8056</a></div>
+    </div>
+  </div>
+
+  <div class="merge-arrows">
+    <div class="merge-line"></div>
+    <div class="merge-line"></div>
+  </div>
+
+  <div class="converge"></div>
+
+  <div class="phase">Phase 5 &mdash; Final merge</div>
+  <div class="node">
+    <div class="label">Merge &rarr; main</div>
+    <div class="commit">SIM-5: fast-forward</div>
+    <div class="commit">SIM-6: auto-merge (0 conflicts)</div>
+    <div class="commit">Final: <a href="https://github.com/asdfgh0318/zycie/commit/1b1bb9c">1b1bb9c</a></div>
+  </div>
+
+  <div class="arrow"></div>
+
+  <div class="phase">Phase 6 &mdash; Sprint 2 (on main, iterative)</div>
+  <div class="node">
+    <div class="label">SIM-7: Island Docking &amp; Visual Overhaul</div>
+    <div class="commit">White craft + solar panels, searchlight fix (visible beam cone)</div>
+    <div class="commit">280px minimap with SOS/crosshair markers, bigger icons</div>
+    <div class="commit">Sailboat model (mast, sails, flutter), island with palm trees</div>
+    <div class="commit">15-unit fleet, single-file pier from shore, port-to-port connected</div>
+    <div class="commit">5 dock types: pier, surround, L-shape, T-shape, horseshoe</div>
+    <div class="commit">Spiral anchor drill system (1m helix, rocking lock)</div>
+    <div class="commit">Collision detection (island, boat, floater boundaries)</div>
+    <div class="commit">Wizard UI: scenario launcher + live dock type reconfiguration</div>
+    <div class="commit">Boat auto-parks at pier end after dock complete</div>
+    <div class="commit">
+      <a href="https://github.com/asdfgh0318/zycie/commit/729199a">729199a</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/1c6115c">1c6115c</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/d1bceaa">d1bceaa</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/087dab2">087dab2</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/bc88e4a">bc88e4a</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/42285d4">42285d4</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/2da661b">2da661b</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/19304ea">19304ea</a> &rarr;
+      <a href="https://github.com/asdfgh0318/zycie/commit/c1c7f9f">c1c7f9f</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="stats">
+  Issues: 6 created, 6 closed &nbsp;|&nbsp;
+  Branches: 5 feature branches (3 + 2 parallel waves) &nbsp;|&nbsp;
+  Merges: 5 clean (0 conflicts) &nbsp;|&nbsp;
+  Sprint 2: 10 iterative commits on main &nbsp;|&nbsp;
+  Commits: 22 total
+</div>
+
+</body>
+</html>
