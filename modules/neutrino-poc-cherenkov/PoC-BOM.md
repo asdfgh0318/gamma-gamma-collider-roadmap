@@ -15,7 +15,7 @@
 | Pozycja | Skąd | Cena |
 |---------|------|------|
 | 80× SiPM Onsemi MicroFJ-30035 (16/moduł) | LCSC / Mouser EU | ~€10–15/szt = **€1000** |
-| 5× SiPM bias/amp PCB (Adam KiCad → JLCPCB) | JLCPCB | **€150** |
+| 5× SiPM bias/amp PCB ([Flux.ai](https://www.flux.ai) AI-assisted → JLCPCB) | JLCPCB | **€150** |
 | Komponenty bierne, op-ampy, ADC (AD9220 / LTC2245) | LCSC + retail PL | **€200** |
 | 5× MCU STM32H743 albo ESP32-S3 | LCSC | **€50** |
 | 5× FPGA Tang Nano 9K (pico-sec timing) | AliExpress | **€100** |
@@ -106,7 +106,7 @@ Lecicie i tak na testy dronów. Marginal: bagaż + 2 dni × 3 osoby × €100 = 
 
 ### Tydzień 1
 - **LCSC**: 100× SiPM zapas, bias R, kondensatory, op-ampy, MCU, FPGA. Lead 10–14 dni. ~€800.
-- **JLCPCB**: pierwszy obrót front-end PCB (Adam projektuje w weekend). 5 płytek + SMD pasywne: €50–100, lead 7–10 dni.
+- **JLCPCB**: pierwszy obrót front-end PCB (Adam projektuje w weekend w **[Flux.ai](https://www.flux.ai)** — AI Copilot generuje schemat, Parts AI dobiera substytuty, eksport Gerber+BOM+CPL prosto do JLCPCB). 5 płytek + SMD pasywne: €50–100, lead 7–10 dni.
 - **AliExpress**: Tang Nano, GPS, akcesoria. Lead 14–21 dni. ~€150.
 
 ### Tydzień 2
@@ -171,7 +171,7 @@ Capital efficiency + scrappiness + execution speed. VC kupują dokładnie to.
 
 ## Następny krok jutro rano
 
-1. **Adam** — KiCad design front-end PCB (weekend, 3–4 dni)
+1. **Adam** — [Flux.ai](https://www.flux.ai) design front-end PCB (weekend, ~1–2 dni z AI Copilot vs 3–4 w KiCad)
 2. **Maksym** — Hetzner, repo, podstawowy DAQ stack
 3. **Kamil** — dzwoni do warsztatów CNC Wro + szuka surplus na OLX/eBay
 4. **Meissner** — 4h science case session w przyszłym tygodniu
