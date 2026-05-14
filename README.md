@@ -16,6 +16,7 @@ flowchart LR
 
     Q --> BIG["🔬 BIG TRACK<br/>γγ Higgs factory<br/>25–35 yr · $20B"]
     Q --> SMALL["⚡ SMALL TRACK<br/>Underwater Cherenkov PoC<br/>12 weeks · €5k"]
+    Q --> NET["🌍 NETWORK TRACK<br/>Mobile + 12 stations<br/>20 yr · self-funding"]
 
     BIG --> P0["Phase 0<br/>Consolidation<br/>2026–28 · $20M"]
     BIG --> P1["Phase 1<br/>R&D components<br/>2028–35 · $500M"]
@@ -27,8 +28,15 @@ flowchart LR
     SMALL --> W5["Week 5<br/>First muon in-air<br/>Wrocław lab"]
     SMALL --> W12["Week 12<br/>First muon underwater<br/>Prasonisi 40 m"]
 
+    NET --> N1["Phase 0-1<br/>Station 1 (Mediterranean E)"]
+    NET --> N3["Phase 2-3<br/>Mobile streamer + Station 2"]
+    NET --> N5["Phase 5<br/>12 stations + servicing fleet"]
+
     W12 -.->|pitch flips| BIG
+    W12 -.->|becomes Station 1| NET
+    N5 -.->|Earth tomography Nobel-class| BIG
     style W12 fill:#0E8A16,color:#fff
+    style N5 fill:#1D76DB,color:#fff
     style P0 fill:#BFD4F2
     style P3 fill:#F9D0C4
 ```
@@ -41,17 +49,22 @@ The small track **funds** the big track. Ship €5k PoC → preprint → flip th
 
 ```mermaid
 graph TB
-    ROOT["📂 /<br/>1.md — long-form roadmap"]
+    ROOT["📂 /<br/>1.md — long-form roadmap<br/>prompts.md — session log"]
 
     ROOT --> M1["📂 modules/neutrino-poc-cherenkov<br/>⚡ EXECUTABLE<br/>€5k · 12 weeks · 9 active issues"]
+    ROOT --> M4["📂 modules/global-network<br/>🌍 STRATEGIC<br/>20 yr · 12 stations · neutrino-VLBI"]
     ROOT --> M2["📂 modules/submarine-openclaw<br/>🤖 CONTROL ARCHITECTURE<br/>Head + 6 arms · MCP transport"]
     ROOT --> M3["📂 modules/floater-f2<br/>🌊 PHYSICAL PLATFORM<br/>Recycled-plastic AFO · 3D sim"]
 
+    M1 -.->|"first station<br/>of the network"| M4
     M2 -.->|"head+arms pattern<br/>applies to 5-module DAQ"| M1
+    M2 -.->|"head+arms scaled<br/>to 1000+ modules/station"| M4
     M3 -.->|"hardware-from-existing-process<br/>motif"| M1
+    M3 -.->|"surface-buoy platform"| M4
     M2 -.->|"swarm coordination<br/>parity"| M3
 
     style M1 fill:#0E8A16,color:#fff
+    style M4 fill:#1D76DB,color:#fff
     style M2 fill:#5319E7,color:#fff
     style M3 fill:#FBCA04
 ```
@@ -59,6 +72,7 @@ graph TB
 | Module | Role | Origin | Status |
 |---|---|---|---|
 | **[neutrino-poc-cherenkov](./modules/neutrino-poc-cherenkov/)** | Executable PoC — SiPM Cherenkov array | new, this session | 🟢 9 issues, W1 active |
+| **[global-network](./modules/global-network/)** | Mobile + distributed 12-station network, 20-yr strategy | new, this session | 🔵 3 strategic issues |
 | **[submarine-openclaw](./modules/submarine-openclaw/)** | Multi-agent arm control architecture | imported from [dontriskit/submarine](https://github.com/dontriskit/submarine) | 🟣 reference |
 | **[floater-f2](./modules/floater-f2/)** | Autonomous floating object (recycled ocean plastic) + 3D simulator | imported from [asdfgh0318/FLOATER-F2](https://github.com/asdfgh0318/FLOATER-F2) | 🟡 reference |
 
@@ -257,10 +271,14 @@ gamma-gamma-collider-roadmap/
 ├── README.md                          # this file
 ├── CLAUDE.md                          # AI agent guidance
 ├── 1.md                               # long-form γγ roadmap (the prompt)
+├── prompts.md                         # verbatim session prompt log
 └── modules/
     ├── neutrino-poc-cherenkov/        # ⚡ executable PoC
     │   ├── MODULE.md
     │   └── PoC-BOM.md
+    ├── global-network/                # 🌍 strategic 20-yr network
+    │   ├── MODULE.md
+    │   └── STRATEGY.md
     ├── submarine-openclaw/            # 🤖 control architecture
     │   ├── MODULE.md
     │   ├── ARCHITECTURE.md
